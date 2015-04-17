@@ -1,0 +1,75 @@
+-- phpMyAdmin SQL Dump
+-- version 4.2.7.1
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Sep 26, 2014 at 05:05 AM
+-- Server version: 5.6.20
+-- PHP Version: 5.5.15
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `news_getter`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sub_category`
+--
+
+CREATE TABLE IF NOT EXISTS `sub_category` (
+`id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+
+--
+-- Dumping data for table `sub_category`
+--
+
+INSERT INTO `sub_category` (`id`, `name`, `category_id`, `create_time`) VALUES
+(1, 'Sức khỏe sinh sản', 1, '2014-09-26 02:30:06'),
+(2, 'Sức khỏe bà bầu', 1, '2014-09-26 02:31:47'),
+(3, 'Thức ăn cho bà bầu', 1, '2014-09-26 02:31:47'),
+(4, 'Nhạc cho bà bầu', 1, '2014-09-26 02:31:47'),
+(5, 'Chăm sóc trẻ sơ sinh', 1, '2014-09-26 02:31:47'),
+(6, 'Chăm sóc trẻ mầm non', 1, '2014-09-26 02:31:47'),
+(7, 'Chăm sóc trẻ 6-12 tuổi', 1, '2014-09-26 02:31:47'),
+(8, 'Món canh', 2, '2014-09-26 02:33:07'),
+(9, 'Món chiên', 2, '2014-09-26 02:33:07'),
+(12, 'Món xào', 2, '2014-09-26 02:34:04'),
+(13, 'Món kho', 2, '2014-09-26 02:34:04'),
+(14, 'Món ăn nước', 2, '2014-09-26 02:34:04');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `sub_category`
+--
+ALTER TABLE `sub_category`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `sub_category`
+--
+ALTER TABLE `sub_category`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,0 +1,138 @@
+@CHARSET "ISO-8859-1";
+
+#wapper {
+	max-width: 960px;
+}
+
+#background_header {
+	background: transparent;
+	max-width: 960px;
+	width: 100%;
+	border: none;
+	filter: alpha(opacity =       80);
+}
+
+.top_header {
+	max-width: 960px;
+	position: relative;
+}
+
+.share {
+	position: absolute;
+	top: 2px;
+	right: 5px;
+	z-index: 99;
+}
+
+.bookmark_top {
+	position: absolute;
+	top: 4px;
+	right: 5px;
+	z-index: 99;
+}
+
+.logo {
+	z-index: 4;
+	position: fixed;
+	top: 0px;
+	color: white;
+}
+
+.swiper-container {
+	background: transparent;
+	text-transform: none;
+	margin-top: 38px !important;
+}
+
+.swiper-container {
+	width: 960px;
+	overflow: hidden;
+}
+
+.swiper-slide {
+	width:100%;
+	max-width: 960px;
+	display:none;
+}
+.swiper-slide.active{
+	display:block;
+}
+.content_news iframe {
+	max-width: 930px;
+}
+
+.swiper_next,.swiper_pre {
+	position: fixed;
+	top: 50%;
+	display: block;
+	width: 23px;
+	height: 41px;
+	margin-top: -48px;
+	z-index: 9;
+}
+
+.swiper_next {
+	background: url("/images/icon/arrows.png") no-repeat;
+	right: 0;
+}
+
+.swiper_pre {
+	background: url("/images/icon/arrows1.png") no-repeat;
+	left: 0;
+}
+
+.swiper-slide-active .bottom_info {
+	display: block;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	max-width: 960px;
+	margin: auto;
+}
+
+.name_news {
+	font-size: 20px;
+}
+
+.content_news {
+	line-height: 20px;
+	font-size:16px;
+}
+
+.tags {
+	margin-bottom: 15px;
+text-align: left;
+}
+
+.tags a img {
+	max-width: 15px;
+	vertical-align: middle;
+	margin-right: 3px;
+}
+
+.tags a {
+	display: inline-block;
+	background: #f4f4f4;
+	padding: 3px;
+	margin: 3px 0px;
+	color:black;
+}
+a.share_button.fa {
+	width: 32px;
+	margin: 0;
+	padding: 0;
+	line-height: 32px;
+	margin-right: 1.312335958005249%;
+	height: 32px;
+	margin-top:3px;
+	display:inline-block;
+}
+a.share_button.facebook{
+	background: url(/images/icon/btn_fa.png) no-repeat;
+}
+a.share_button.tw{
+	background: url(/images/icon/btn_tw.png) no-repeat;
+}
+a.share_button.goo{
+	background: url(/images/icon/btn_goo.png) no-repeat;
+}

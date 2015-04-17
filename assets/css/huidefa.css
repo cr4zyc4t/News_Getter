@@ -1,0 +1,15 @@
+/*!
+ *   HuiDeFa v0.1
+ *   Author: vqt907
+!*/
+/*
+    Custom style for HuiDeFa Project
+----------------------------
+*/
+.box.hasTable{
+	min-width: 1300px;
+}
+
+.box-body {
+  overflow: auto;
+}
