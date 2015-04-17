@@ -1,0 +1,18 @@
+<script type="text/javascript" src="/assets/plugins/jwplayer/jwplayer.js"></script>
+<div id='playerWENhJpCIgUwk'></div>
+<div class="info">
+    <h3><?php echo $this->video['title']; ?></h3>
+    <h4><?php echo $this->video['author']; ?></h4>
+    <h4><?php echo $this->video['created_time']; ?></h4>
+    <h4><?php echo $this->video['description']; ?></h4>
+    <h4><?php echo $this->video['url']; ?></h4>
+</div>
+
+<script type='text/javascript'>
+    jwplayer.key="QkxtcYGigdqUvO4e5o5a4WYWIVLBF2Zaw/pcxg==";
+    jwplayer('playerWENhJpCIgUwk').setup({
+        file: '<?php echo $this->video['url']; ?>',
+        title: '<?php echo $this->video['title']; ?>',
+//        width: '80%'
+    });
+</script>

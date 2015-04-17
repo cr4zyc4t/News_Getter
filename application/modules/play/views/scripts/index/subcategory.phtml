@@ -1,0 +1,13 @@
+<div class="row">
+<?php
+foreach($this->videos as $video){
+    $string =
+        "<div class=\"col-sm-3 video-tile\">
+                <a href=\"/play/index/video?id=$video[id]\">
+                    <img src=\"$video[icon]\">
+                    <h4>$video[title]</h4>
+                </a>
+            </div>";
+    echo $string;
+}
+?>

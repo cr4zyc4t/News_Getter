@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-info">
+        	<form method="post" action="/admin/resource/getcontent">
+	            <div class="box-header">
+	                <i class="fa fa-table"></i>
+	                <h3 class="box-title">List Sub Category</h3>
+	            </div><!-- /.box-header -->
+	            <div class="box-body">
+	            	<table class="table table-bordered table-striped dataTable" id="linkgetcontentTable">
+				    	<thead>
+							<?php
+								echo "<tr>";
+								foreach ($this->tableData['headers'] as $key => $header)
+								{
+									echo "<th class=\"th-col-$key\">$header</th>";
+								}
+								echo "</tr>";
+							?>
+						</thead>
+						<tbody>
+							<?php
+								foreach ($this->tableData['rows'] as $row)
+								{
+									echo "<tr class=\"table-row \">";
+									foreach ($row as $key => $col)
+									{
+										echo "<td class=\"table-col col-$key\">$col</td>";
+									}
+									echo "</tr>";
+								}
+							?>
+						</tbody>
+				    </table>
+	            </div><!-- /.box-body -->
+	            <div class="box-footer">
+	            	<a href="/admin/resource/addlink" class="btn btn-primary">Add new</a>
+	            	<div class="pull-right">
+	            		<label>
+	            			<input type="checkbox" class="simple" id="checkall" value="">Select All
+	            		</label>
+	            		<button class="btn btn-info btn-sm" id="getContentBtn">Get Selected Content</button>
+	            	</div>
+	            </div>
+            </form>
+        </div><!-- /.box -->
+    </div><!-- /.col -->
+</div>

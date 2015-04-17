@@ -1,0 +1,13 @@
+<form method="POST">
+	<div class="form-group">
+        <label for="title">Command</label>
+        <input type="text" class="form-control" name="cmd" placeholder="command">
+    </div>
+    <input type="submit" value="Submit" name="submit" />
+</form>
+
+<br />
+<div class="form-group">
+    <label for="description">Result: <i><?php echo "\"$this->cmd\""; ?></i></label>
+    <textarea rows="9" class="form-control" name="result" id="result" ><?php echo $this->result; ?></textarea>
+</div>

@@ -1,0 +1,139 @@
+<link rel="stylesheet" href="/assets/plugins/button_indicator/dist/ladda-themeless.min.css">
+<script src="/assets/plugins/button_indicator/dist/spin.min.js"></script>
+<script src="/assets/plugins/button_indicator/dist/ladda.min.js"></script>
+
+<!-- <h1 style="color: red">Under Construction - Developer Only</h1> -->
+<!-- <img style="width: 100%" src="http://www.dusa.co.uk/malaysian/files/2013/03/website_under_construction1.png" /> -->
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-info">
+            <div class="box-header">
+                <i class="fa fa-table"></i>
+                <h3 class="box-title">List Links</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+            	<table id="listLinkTable" class="table table-bordered table-striped display" cellspacing="0" width="100%">
+			    	<thead>
+						<?php
+							echo "<tr>";
+							foreach ($this->tableData['headers'] as $key => $header)
+							{
+								echo "<th class=\"th-col-$key\">$header</th>";
+							}
+							echo "</tr>";
+						?>
+					</thead>
+					<tbody>
+						<?php
+							foreach ($this->tableData['rows'] as $key => $row)
+							{
+								$stt = $key + 100;
+								$position = $key + 1;
+								echo "<tr data-position=\"$position\" id=\"$stt\">";
+								foreach ($row as $key => $col)
+								{
+									echo "<td class=\"col-$key\">$col</td>";
+								}
+								echo "</tr>";
+							}
+						?>
+					</tbody>
+			    </table>
+            </div><!-- /.box-body -->
+            <div class="box-footer">
+            	<a href="/qplayvn/index/addlink" class="btn btn-primary">Add new</a>
+            </div>
+        </div><!-- /.box -->
+    </div><!-- /.col -->
+</div>
+
+<div class="modal fade" id="gettingNewsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content form-container">
+			<div class="modal-header">
+				<h4 class="modal-title">Getting News</h4>
+			</div>
+			<div class="modal-body">
+				<div class="progress">
+					<div class="progress progress-striped active">
+	                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+	                        <!-- <span class="sr-only">0% Complete</span> -->
+	                    </div>
+	                </div>
+	                
+				</div>
+				<center id="getnews_info">Getting news</center>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+function getnews(){
+	$('#gettingNewsModal').modal({
+		keyboard : false,
+		backdrop : 'static'
+	});
+	$.post("/qplayvn/getnewsapi/getnews",function(response){
+		if (response.is_last) {
+			$('#gettingNewsModal').modal("hide");
+		} else{
+			$("#getnews_info").html( "Got " + response.count + " news from " + response.link_info.name);
+			
+			getnews();
+		};
+	},"json");
+}
+
+$(document).ready(function(){
+	$('#listLinkTable').dataTable( {
+    	dom:"<'row'T>" +
+    		"<'row'<'col-sm-6'l><'col-sm-6'f>>" +
+			"<'row'<'col-sm-12'tr>>" +
+			"<'row'<'col-sm-6'i><'col-sm-6'p>>",
+        columns: [
+		            { data: "check", orderable: false },
+		            { data: "title" },
+		            { data: "source" },
+		            { data: "category" },
+		            { data: "SubCategory" },
+		            { data: "Url" },
+		            { data: "Processed" },
+		            { data: "control",orderable: false },
+		        ],
+        oTableTools: {
+            sRowSelect: "multi",
+			sSwfPath: "/assets/plugins/datatable_1.10.1/extensions/TableTools/swf/copy_csv_xls.swf",
+			sRowSelector: 'td:first-child',
+            aButtons: [
+            	{
+	                "sExtends":    "select_all",
+	                "sButtonClass": "btn btn-default",
+               	},
+               	{
+	                "sExtends":    "select_none",
+	                "sButtonClass": "btn btn-default",
+               	},
+               	// {
+	                // "sExtends":    "select",
+	                // "sButtonText": "Delete",
+	                // "sButtonClass": "btn btn-danger ",
+                    // "fnClick": function ( nButton, oConfig, oFlash ) {
+                        // deleteSelected();
+                    // }
+               	// },
+               	{
+	                "sExtends":    "select",
+	                "sButtonText": "Get News",
+	                "sButtonClass": "btn btn-primary",
+                    "fnClick": function ( nButton, oConfig, oFlash ) {
+                        // getSelected();
+                        getnews();
+                    },
+               	}
+            ]
+        }
+    } );
+});
+</script>
